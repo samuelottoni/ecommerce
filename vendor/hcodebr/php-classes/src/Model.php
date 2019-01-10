@@ -16,7 +16,8 @@ class Model {
 		switch ($method)
 		{
 			case "get":
-				return $this->values[$fieldName];
+			//se id nao  foi definido  retorna nulo 
+				return (isset($this->values[$fieldName])) ? $this->values[$fieldName] : NULL;
 			break;
 			case "set":
 				$this->values[$fieldName] = $args[0];

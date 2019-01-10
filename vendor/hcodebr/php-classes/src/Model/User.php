@@ -9,7 +9,6 @@ class User extends Model {
 
 	const SESSION = "User";
 	const SECRET = "HcodePhp7_Secret";
-	const SECRET_IV = "Hc0dePhp7_S3cr3t";
 
 
 	public static function login($login, $password)
