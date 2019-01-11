@@ -17,6 +17,9 @@ class Product extends Model {
 
 		return $sql ->select("SELECT * FROM tb_products ORDER BY desproduct");
 	}
+
+	//& ja altera o row direto no list 
+
 	public static function checkList($list)
 	{
 		foreach ($list as &$row ) {
@@ -29,6 +32,8 @@ class Product extends Model {
 		return $list;
 
 	}
+
+
 	public function save()
 	{
 
