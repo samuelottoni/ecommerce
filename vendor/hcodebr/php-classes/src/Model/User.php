@@ -405,7 +405,7 @@ public static function setError($msg)
 		];
 	}
 
-		public static function getPageSearch($search, $page = 1, $itemPerPage = 10)
+	public static function getPageSearch($search, $page = 1, $itemPerPage = 10)
 	{
 
 		$start = ($page -  1) * $itemPerPage;
@@ -419,7 +419,7 @@ public static function setError($msg)
 			WHERE desperson LIKE  :search or b.desemail = :search or a.deslogin LIKE :search
 			ORDER BY b.desperson
 			LIMIT $start,$itemPerPage;",[
-				
+
 				":search"=>'%'.$search."%"
 			]);
 
