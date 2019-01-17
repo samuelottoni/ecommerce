@@ -10,9 +10,6 @@ $app->get("/admin/categories",function(){
 	User::verifyLogin();
 
 
-
-
-
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 	$page = (isset($_GET['page'])) ?(int)$_GET['page'] : 1;
 
@@ -29,7 +26,6 @@ $app->get("/admin/categories",function(){
 
 
 	$pages = [];
-
 	for ($x=0; $x < $pagination['pages'] ; $x++) { 
 		array_push($pages, [
 			'href'=>'/admin/categories?'.http_build_query([
