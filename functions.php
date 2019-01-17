@@ -11,6 +11,10 @@ function formatPrice($vlprice)
 
 
 }
+function formatData($date)
+{
+	return date('d/m/Y',strtotime($date));
+}
 
 function checkLogin($inadmin = true)
 {
@@ -45,6 +49,7 @@ function  getCartVlSubTotal(){
 
 	return formatPrice($totals['vlprice']);
 }
+
 
 
 
