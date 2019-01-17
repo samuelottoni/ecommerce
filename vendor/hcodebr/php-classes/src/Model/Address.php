@@ -69,8 +69,7 @@ class Address extends Model {
 			':deszipcode'=>$this->getdeszipcode(),
 			':desdistrict'=>$this->getdesdistrict()
 		]);
-		var_dump($results);
-		exit;
+
 		if (count($results) > 0) {
 			$this->setData($results[0]);
 		}
