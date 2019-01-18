@@ -157,7 +157,7 @@ $app->get("/checkout",function(){
 	$address =  new Address();
 	$cart = Cart::getFromSession();
 
-	if (isset($_GET['zipcode'])){
+	if (!isset($_GET['zipcode'])){
 
 		$_GET['zipcode'] = $cart->getdeszipcode();
 
@@ -177,6 +177,7 @@ $app->get("/checkout",function(){
 
 	
 	if (!$address->getdesaddress()) $address->setdesaddress('');
+	if (!$address->getdesnumber()) $address->setdesnumber('');
 	if (!$address->getdescomplement()) $address->setdescomplement('');
 	if (!$address->getdesdistrict()) $address->setdesdistrict('');
 	if (!$address->getdescity()) $address->setdescity('');
@@ -212,6 +213,11 @@ $app->post("/checkout",function(){
 		header('Location: /checkout');
 		exit;
 	}
+	if (!isset($_POST['desnumber']) || $_POST['desnumber'] === '') {
+		Address::setMsgError("Informe o número.");
+		header('Location: /checkout');
+		exit;
+	}
 	if (!isset($_POST['desdistrict']) || $_POST['desdistrict'] === '') {
 		Address::setMsgError("Informe o bairro.");
 		header('Location: /checkout');
@@ -237,6 +243,7 @@ $app->post("/checkout",function(){
 	$user = User::getFromSession();
 
 	$address = new Address();
+
 
 	$_POST['deszipcode'] = $_POST['zipcode'];
 
